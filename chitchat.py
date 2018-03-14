@@ -5,7 +5,7 @@ weather = "cloudy"
 #Define a dictionary with the predefined responses
 responses = {
 	"what's your name?": "My name is {0}".format(name),
-	"what's today's weather": "The weather is {0}".format(weather),
+	"what's today's weather?": "The weather is {0}".format(weather),
 	"default": "default message"
 }
 
@@ -22,5 +22,6 @@ def respond(message):
 
 
 if __name__ == "__main__":
-	response = respond("what's your name?")
+	question = input("Your question: ")
+	response = respond(question)
 	print(response)
