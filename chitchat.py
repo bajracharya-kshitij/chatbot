@@ -1,23 +1,33 @@
+#Import the random module
+import random
+
 #Define variables
 name = "Kshitij"
 weather = "cloudy"
 
-#Define a dictionary with the predefined responses
+#Define a dictionary containing a list of reponses for each message
 responses = {
-	"what's your name?": "My name is {0}".format(name),
-	"what's today's weather?": "The weather is {0}".format(weather),
-	"default": "default message"
+	"what's your name?": [
+		"My name is {0}".format(name),
+		"They call me {0}".format(name),
+		"I go by {0}".format(name)
+	],
+	"what's today's weather?": [
+		"The weather is {0}".format(weather),
+		"It's {0} today".format(weather)
+	],
+	"default": ["default message"]
 }
 
-#Return the matching response if there is one, default otherwise
+#Use random.choice() to choose a matching response
 def respond(message):
 	#Check if the message is in the responses
 	if message in responses:
-		#Return the matching message
-		bot_message = responses[message]
+		#Return a random matching response
+		bot_message = random.choice(responses[message])
 	else:
-		#Return the "default" message
-		bot_message = responses["default"]
+		#Return a random "default" response
+		bot_message = random.choice(responses["default"])
 	return bot_message
 
 
