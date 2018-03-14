@@ -5,6 +5,10 @@ def respond(messaage):
 	bot_message = "I can hear you! You said: " + messaage
 	return bot_message
 
+def send_message(message):
+	print(user_template.format(message))
+	response = respond(message)
+	print(bot_template.format(response))
+
 if __name__ == "__main__":
-	bot_response = respond("Hello!")
-	print(bot_response)
+	send_message("Hello!")
